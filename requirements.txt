@@ -1,0 +1,5 @@
+fastapi[all]
+uvicorn
+python-dotenv
+supabase
+requests
