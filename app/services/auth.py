@@ -8,8 +8,11 @@ from fastapi.security import HTTPAuthorizationCredentials, HTTPBearer
 from jose import jwt, JWTError
 
 from app.models.auth import TokenModel
+from dotenv import load_dotenv
 
 security = HTTPBearer()
+
+load_dotenv()
 
 def verify_jwt(credentials: HTTPAuthorizationCredentials = Depends(security)):
     """

@@ -4,6 +4,9 @@ import aiohttp
 from fastapi import HTTPException, UploadFile
 from app.models.responses import HealthResponse
 from app.services.secrets import fetch_api_key, fetch_prompts
+from dotenv import load_dotenv
+
+load_dotenv()
 
 async def transcribe_and_summarize(audio: UploadFile, type: str) -> str:
     """"
