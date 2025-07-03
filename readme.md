@@ -119,6 +119,12 @@ docker rm dev
 docker logs dev
 ```
 
+* Para testar:
+
+```bash
+docker rm -f dev 2>/dev/null && docker build -t clairfy-backend . && docker run -d --name dev -p 8000:80 clairfy-backend
+```
+
 ---
 
 Se tiver algum problema ou dúvida, verifique se todos os passos foram seguidos corretamente. Caso precise de ajuda, entre em contato com o time de desenvolvimento.
