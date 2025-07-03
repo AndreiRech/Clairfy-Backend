@@ -20,4 +20,5 @@ async def fetch_from_supabase(table: str):
 
         if response.status_code != 200:
             raise Exception(f"Erro ao buscar {table}: {response.text}")
+        
         return response.json()
