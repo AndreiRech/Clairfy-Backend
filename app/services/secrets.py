@@ -9,7 +9,7 @@ async def fetch_api_key() -> APIModel:
     if not data:
         raise HTTPException(status_code=404, detail="Nenhum dado encontrado na tabela 'secure_data'")
 
-    return APIModel(api_key=data[0]["api_key"])
+    return APIModel(api_key=data[0]["api_key"].strip().strip("'").strip('"'))
 
 async def fetch_prompts() -> PromptModel:
     data = await fetch_from_supabase("prompts")
