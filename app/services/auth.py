@@ -18,6 +18,7 @@ def verify_jwt(credentials: HTTPAuthorizationCredentials = Depends(security)):
     """
     Valida o token JWT passado no header.
     """
+    
     try:
         payload = jwt.decode(credentials.credentials, os.getenv("ACCESS_TOKEN"), algorithms=[os.getenv("ALGORITHM")])
         return payload

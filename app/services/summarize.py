@@ -60,7 +60,11 @@ async def transcribe_audio(audio: UploadFile, api_key: str) -> str:
     async with aiohttp.ClientSession() as session:
         async with session.post(os.getenv("OPENAI_TRANSCRIBE_URL"), data=data, headers=headers) as resp:
             if resp.status != 200:
-                raise HTTPException(status_code=resp.status, detail="Erro na transcrição do áudio")
+                detail = await resp.text()
+                raise HTTPException(
+                    status_code=500,
+                    detail=f"Erro na transcrição do áudio: {resp.status} - {detail}"
+                )
             response = await resp.json()
             return response.get("text")
         
