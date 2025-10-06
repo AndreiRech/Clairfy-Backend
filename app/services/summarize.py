@@ -83,7 +83,7 @@ async def summarize_text(text: str, prompt: str, api_key: str) -> str:
     }
 
     headers = {
-        "Authorization": f"Bearer {api_key.strip().strip("'").strip('"')}",
+        "Authorization": f"Bearer {api_key.strip()}",
         "Content-Type": "application/json"
     }
 
