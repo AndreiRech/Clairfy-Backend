@@ -54,7 +54,7 @@ async def transcribe_audio(audio: UploadFile, api_key: str) -> str:
     data.add_field("model", "whisper-1")
 
     headers = {
-        "Authorization": f"Bearer {api_key.strip().strip("'").strip('"')}"
+        "Authorization": f"Bearer {api_key.strip()}"
     }
 
     async with aiohttp.ClientSession() as session:
